@@ -60,6 +60,7 @@ class SudokuPuzzle:
         print("-------------------")
         return self
 
+
 class Cell:
     def __init__(self, row, col, init_value):
         self.row = row

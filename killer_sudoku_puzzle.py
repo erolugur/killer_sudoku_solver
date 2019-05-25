@@ -1,4 +1,5 @@
 from sudoku_puzzle import SudokuPuzzle
+import cage_member_calculator
 
 
 class KillerSudokuPuzzle(SudokuPuzzle):
@@ -6,6 +7,12 @@ class KillerSudokuPuzzle(SudokuPuzzle):
         def __init__(self, total_value, cells):
             self.total_value = total_value
             self.relatives = cells
+            #self.set_cage_member_values()
+
+        def set_cage_member_values(self):
+            available_values = cage_member_calculator.get_cage_members(len(self.relatives), self.total_value)
+            for cell in self.relatives:
+                cell.available_values = available_values
 
         def have_relation(self, cell):
             return cell in self.relatives
