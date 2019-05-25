@@ -62,12 +62,14 @@ class SudokuPuzzle:
 
 
 class Cell:
+    candidates = [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
     def __init__(self, row, col, init_value):
         self.row = row
         self.col = col
         self.current_value = init_value
         self.tested_values = []
-        self.available_values = [] if init_value != 0 else [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        self.available_values = [] if init_value != 0 else Cell.candidates
         self.relatives = set([])
 
     def get_index(self):
