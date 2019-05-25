@@ -7,8 +7,6 @@ class SudokuSolver:
         self.compare_count = 0
         self.back_track_count = 0
 
-    def get_next_cell(self, cell):
-        return self.sudoku.cells.get((cell.row, cell.col + 1) if cell.col < 9 else (cell.row + 1, 1))
 
     @staticmethod
     def get_next_value(cell):
@@ -31,7 +29,7 @@ class SudokuSolver:
     def solve_r(self, cell=None):
         while True:
             if cell is None or self.sudoku.check_relatives(cell, self):
-                next_cell = self.get_next_cell(cell)
+                next_cell = self.sudoku.get_next_cell(cell)
                 if next_cell:
                     if self.solve_r(next_cell):
                         return True

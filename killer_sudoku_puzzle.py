@@ -1,5 +1,6 @@
 from sudoku_puzzle import SudokuPuzzle
 
+
 class KillerSudokuPuzzle(SudokuPuzzle):
     class KillerRelation:
         def __init__(self, total_value, cells):
